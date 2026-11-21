@@ -7,9 +7,9 @@
  */
 export const siteConfig = {
   /** Brand name shown in the logo, metadata and footer. */
-  name: "PIXSHRINK",
+  name: "FixShrink",
   /** Compact brand name for tight layouts (e.g. very small screens). */
-  shortName: "PIX",
+  shortName: "FS",
   tagline: "Free online image editing & compression tools",
   description:
     "Edit, convert, compress and resize images online — free, fast and right in your browser. No signup required.",

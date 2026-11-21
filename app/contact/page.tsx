@@ -7,7 +7,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Contact",
   description:
-    "Contact details for support, privacy requests, legal questions and business enquiries about PIXSHRINK.",
+    "Contact details for support, privacy requests, legal questions and business enquiries about FixShrink.",
   path: "/contact",
 });
 

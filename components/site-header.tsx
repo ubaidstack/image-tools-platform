@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { ImageIcon, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { navLinks, siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -24,9 +25,15 @@ export function SiteHeader() {
           className="flex items-center gap-2.5"
           aria-label={`${siteConfig.name} — home`}
         >
-          <span className="flex size-9 items-center justify-center rounded-lg bg-accent text-white">
-            <ImageIcon className="size-5" aria-hidden="true" />
-          </span>
+          <Image
+            src="/fixshrink-icon.png"
+            alt=""
+            width={256}
+            height={256}
+            sizes="36px"
+            preload
+            className="size-9 rounded-lg"
+          />
           <span className="text-sm font-semibold tracking-tight text-gray-900 sm:text-base">
             {siteConfig.name}
           </span>

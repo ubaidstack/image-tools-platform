@@ -1,5 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ImageIcon } from "lucide-react";
 import { footerLinkGroups, siteConfig } from "@/config/site";
 import { cacheLife } from "next/cache";
 
@@ -21,9 +21,14 @@ export async function SiteFooter() {
           {/* Brand column */}
           <div className="sm:col-span-2 lg:pr-8">
             <Link href="/" className="inline-flex items-center gap-2.5">
-              <span className="flex size-9 items-center justify-center rounded-lg bg-accent text-white">
-                <ImageIcon className="size-5" aria-hidden="true" />
-              </span>
+              <Image
+                src="/fixshrink-icon.png"
+                alt=""
+                width={256}
+                height={256}
+                sizes="36px"
+                className="size-9 rounded-lg"
+              />
               <span className="text-sm font-semibold tracking-tight text-gray-900">
                 {siteConfig.name}
               </span>
