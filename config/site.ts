@@ -6,11 +6,11 @@
  * from this file, so no other code needs to change.
  */
 export const siteConfig = {
-  /** Temporary brand name shown in the logo, metadata and footer. */
-  name: "IMAGE TOOL PLATFORM",
+  /** Brand name shown in the logo, metadata and footer. */
+  name: "PIXSHRINK",
   /** Compact brand name for tight layouts (e.g. very small screens). */
-  shortName: "ITP",
-  tagline: "Free online image editing tools",
+  shortName: "PIX",
+  tagline: "Free online image editing & compression tools",
   description:
     "Edit, convert, compress and resize images online — free, fast and right in your browser. No signup required.",
   /**
