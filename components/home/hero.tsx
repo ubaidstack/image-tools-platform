@@ -22,7 +22,7 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="mx-auto mt-10 max-w-2xl">
+        <div className="mx-auto mt-10 max-w-4xl">
           <UploadArea />
         </div>
 
