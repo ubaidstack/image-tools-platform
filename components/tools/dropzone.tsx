@@ -64,20 +64,20 @@ export function Dropzone({
         onDrop={handleDrop}
         aria-label="Drag and drop an image here or browse files"
         className={cn(
-          "flex cursor-pointer flex-col items-center rounded-2xl border-2 border-dashed bg-gray-50/60 px-6 py-12 text-center transition-colors duration-200 outline-none sm:py-14",
+          "flex cursor-pointer flex-col items-center rounded-3xl border-2 border-dashed bg-gradient-to-b from-white to-accent-soft/50 px-6 py-12 text-center transition-all duration-300 outline-none sm:py-16",
           dragActive
-            ? "border-accent bg-accent-soft"
-            : "border-gray-300 hover:border-accent/50 hover:bg-accent-soft/40 focus-visible:border-accent focus-visible:ring-4 focus-visible:ring-accent/15"
+            ? "scale-[1.01] border-accent bg-accent-soft"
+            : "border-accent/25 hover:border-accent/60 hover:shadow-lg hover:shadow-accent/5 focus-visible:border-accent focus-visible:ring-4 focus-visible:ring-accent/15"
         )}
       >
-        <span className="flex size-14 items-center justify-center rounded-full bg-white text-accent shadow-sm ring-1 ring-gray-200">
-          <Upload className="size-6" aria-hidden="true" />
+        <span className="flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-violet text-white shadow-xl shadow-accent/30 motion-safe:animate-float-soft">
+          <Upload className="size-7" aria-hidden="true" />
         </span>
-        <p className="mt-4 text-lg font-semibold text-gray-900">
+        <p className="mt-5 text-xl font-semibold text-ink">
           Drag &amp; drop your image here
         </p>
         <p className="mt-1 text-sm text-gray-500">or</p>
-        <span className="mt-4 inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-accent-strong">
+        <span className="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-violet px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-200">
           <Upload className="size-4" aria-hidden="true" />
           Browse files
         </span>
@@ -95,7 +95,7 @@ export function Dropzone({
         }}
       />
 
-      <p className="mt-4 text-center text-sm text-gray-500">
+      <p className="mt-4 text-center text-xs font-medium text-gray-500">
         Supported formats: {formatsLabel} · Up to {maxSizeLabel}
       </p>
 

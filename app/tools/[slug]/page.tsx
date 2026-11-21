@@ -71,7 +71,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
   const schemas = seo ? getToolJsonLd(tool, seo) : null;
 
   return (
-    <Container className="py-10 sm:py-14">
+    <Container className="py-12 sm:py-16">
       {schemas ? (
         <>
           <JsonLd data={schemas.webAppSchema} />
@@ -81,17 +81,22 @@ export default async function ToolPage({ params }: ToolPageProps) {
       ) : null}
 
       {/* Tool header */}
-      <div className="mx-auto mb-8 max-w-3xl text-center">
-        <span className="mx-auto flex size-14 items-center justify-center rounded-full bg-accent-soft text-accent">
-          <Icon className="size-6" aria-hidden="true" />
+      <div className="relative mx-auto mb-10 max-w-3xl text-center">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-10 left-1/2 h-40 w-[28rem] max-w-full -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"
+        />
+        <span className="relative mx-auto flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-violet text-white shadow-xl shadow-accent/25">
+          <Icon className="size-7" aria-hidden="true" />
         </span>
-        <h1 className="mt-5 text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+        <h1 className="relative mt-6 text-3xl font-semibold tracking-tight text-ink text-balance sm:text-4xl">
           {seo ? seo.h1 : tool.name}
         </h1>
-        <p className="mt-3 text-base leading-relaxed text-gray-600">
+        <p className="relative mt-3 text-base leading-relaxed text-gray-600 text-pretty">
           {tool.description}
         </p>
-        <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-1.5 text-xs font-medium text-gray-500">
+        <p className="relative mt-4 inline-flex items-center gap-2 rounded-full border border-accent/15 bg-white px-4 py-1.5 text-xs font-medium text-gray-600 shadow-xs">
+          <span aria-hidden="true" className="size-1.5 rounded-full bg-emerald-500" />
           Processes locally in your browser — your image never leaves your device
         </p>
       </div>

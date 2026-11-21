@@ -50,7 +50,7 @@ export function QualitySlider({
         aria-label={`Quality: ${value}%`}
         className="h-2 w-full cursor-pointer appearance-none rounded-full bg-gray-200 accent-[var(--color-accent)] disabled:cursor-not-allowed disabled:opacity-50"
       />
-      <span className="w-14 shrink-0 rounded-md bg-gray-100 px-2 py-1 text-center text-sm font-medium text-gray-700 tabular-nums">
+      <span className="w-14 shrink-0 rounded-lg bg-accent-soft px-2 py-1 text-center text-sm font-semibold text-accent tabular-nums">
         {value}%
       </span>
     </div>
@@ -201,10 +201,10 @@ export function ActionButton({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        "inline-flex w-full items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto",
+        "inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto",
         variant === "primary"
-          ? "bg-accent text-white hover:bg-accent-strong"
-          : "border border-gray-300 bg-white text-gray-700 hover:border-gray-400"
+          ? "bg-gradient-to-r from-accent to-violet text-white shadow-lg shadow-accent/25 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/30"
+          : "border border-gray-900/10 bg-white text-gray-700 shadow-sm hover:border-accent/40 hover:text-accent"
       )}
     >
       {children}
@@ -245,7 +245,7 @@ export function ToggleGroup({
             "rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50",
             value === option.value
               ? "border-accent bg-accent-soft text-accent"
-              : "border-gray-300 bg-white text-gray-600 hover:border-gray-400 hover:text-gray-900"
+              : "border-gray-900/10 bg-white text-gray-600 hover:border-accent/40 hover:text-ink"
           )}
         >
           {option.label}

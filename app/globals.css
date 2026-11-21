@@ -6,13 +6,44 @@
 }
 
 /*
-  Brand palette. The accent colour is defined once here so the whole
-  site can be re-themed (or rebranded) from a single place.
+  Brand palette. Every colour is defined once here so the whole site can be
+  re-themed (or rebranded) from a single place.
 */
 @theme {
-  --color-accent: #2563eb;
-  --color-accent-strong: #1d4ed8;
-  --color-accent-soft: #eff6ff;
+  /* Surfaces and text */
+  --color-surface: #f7f8fc;
+  --color-ink: #171a2b;
+  --color-navy: #0b1020;
+
+  /* Brand */
+  --color-accent: #5267f5;
+  --color-accent-strong: #4255e8;
+  --color-accent-soft: #eef1ff;
+  --color-violet: #8b5cf6;
+  --color-cyan: #22d3ee;
+}
+
+/* Soft floating motion for decorative upload marks. */
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@utility animate-float-soft {
+  animation: float-soft 3.5s ease-in-out infinite;
+}
+
+/* Faint grid used behind the hero. */
+@utility bg-hero-grid {
+  background-image:
+    linear-gradient(to right, rgb(23 26 43 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(23 26 43 / 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
 
 html {
@@ -21,4 +52,21 @@ html {
 
 body {
   text-rendering: optimizeLegibility;
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+}
+
+::selection {
+  background-color: color-mix(in oklab, var(--color-accent) 22%, transparent);
+  color: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-float-soft {
+    animation: none;
+  }
 }

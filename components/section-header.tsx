@@ -28,15 +28,19 @@ export function SectionHeader({
       )}
     >
       {eyebrow ? (
-        <p className="mb-2 text-sm font-semibold tracking-wide text-accent uppercase">
+        <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-gray-900/5 bg-white px-3 py-1 text-xs font-semibold tracking-[0.14em] text-accent uppercase shadow-xs">
+          <span
+            aria-hidden="true"
+            className="size-1.5 rounded-full bg-gradient-to-r from-accent to-violet"
+          />
           {eyebrow}
         </p>
       ) : null}
-      <Heading className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+      <Heading className="text-3xl font-semibold tracking-tight text-ink text-balance sm:text-4xl">
         {title}
       </Heading>
       {description ? (
-        <p className="mt-3 text-base leading-relaxed text-gray-600 sm:text-lg">
+        <p className="mt-4 text-base leading-relaxed text-gray-600 text-pretty sm:text-lg">
           {description}
         </p>
       ) : null}

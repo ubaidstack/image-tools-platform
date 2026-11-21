@@ -26,7 +26,7 @@ export function ToolSeoSection({ content, tool }: ToolSeoSectionProps) {
     .filter((t): t is Tool => t !== undefined);
 
   return (
-    <article className="mt-16 sm:mt-24 border-t border-gray-200 pt-16">
+    <article className="mt-16 border-t border-gray-900/5 pt-16 sm:mt-24">
       {/* Overview & Instructions Guide */}
       <div className="mx-auto max-w-4xl space-y-14">
         {/* About & In-depth Introduction */}
@@ -49,7 +49,7 @@ export function ToolSeoSection({ content, tool }: ToolSeoSectionProps) {
         {/* How to upload, adjust and download */}
         <section
           aria-labelledby="usage-guide-heading"
-          className="rounded-2xl border border-gray-200 bg-gray-50/70 p-6 sm:p-8"
+          className="rounded-2xl border border-gray-900/5 bg-surface p-6 sm:p-8"
         >
           <h3
             id="usage-guide-heading"
@@ -62,8 +62,8 @@ export function ToolSeoSection({ content, tool }: ToolSeoSectionProps) {
           </p>
 
           <div className="mt-6 grid gap-6 md:grid-cols-3">
-            <div className="flex flex-col gap-2 rounded-xl border border-gray-200 bg-white p-5 shadow-xs">
-              <span className="flex size-9 items-center justify-center rounded-lg bg-accent-soft text-accent">
+            <div className="flex flex-col gap-2 rounded-2xl border border-gray-900/5 bg-white p-5 shadow-sm shadow-gray-900/5">
+              <span className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-violet text-white shadow-md shadow-accent/20">
                 <Upload className="size-5" aria-hidden="true" />
               </span>
               <h4 className="font-semibold text-gray-900">1. Upload Image</h4>
@@ -72,8 +72,8 @@ export function ToolSeoSection({ content, tool }: ToolSeoSectionProps) {
               </p>
             </div>
 
-            <div className="flex flex-col gap-2 rounded-xl border border-gray-200 bg-white p-5 shadow-xs">
-              <span className="flex size-9 items-center justify-center rounded-lg bg-accent-soft text-accent">
+            <div className="flex flex-col gap-2 rounded-2xl border border-gray-900/5 bg-white p-5 shadow-sm shadow-gray-900/5">
+              <span className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-violet text-white shadow-md shadow-accent/20">
                 <Sparkles className="size-5" aria-hidden="true" />
               </span>
               <h4 className="font-semibold text-gray-900">2. Adjust Settings</h4>
@@ -82,8 +82,8 @@ export function ToolSeoSection({ content, tool }: ToolSeoSectionProps) {
               </p>
             </div>
 
-            <div className="flex flex-col gap-2 rounded-xl border border-gray-200 bg-white p-5 shadow-xs">
-              <span className="flex size-9 items-center justify-center rounded-lg bg-accent-soft text-accent">
+            <div className="flex flex-col gap-2 rounded-2xl border border-gray-900/5 bg-white p-5 shadow-sm shadow-gray-900/5">
+              <span className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-violet text-white shadow-md shadow-accent/20">
                 <Download className="size-5" aria-hidden="true" />
               </span>
               <h4 className="font-semibold text-gray-900">3. Save &amp; Download</h4>
@@ -103,9 +103,9 @@ export function ToolSeoSection({ content, tool }: ToolSeoSectionProps) {
             {content.steps.map((step) => (
               <li
                 key={step.step}
-                className="flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 shadow-xs"
+                className="flex items-start gap-4 rounded-2xl border border-gray-900/5 bg-white p-5 shadow-sm shadow-gray-900/5"
               >
-                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-accent font-semibold text-white text-sm">
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent to-violet font-semibold text-sm text-white shadow-sm shadow-accent/30">
                   {step.step}
                 </span>
                 <div>
@@ -124,7 +124,7 @@ export function ToolSeoSection({ content, tool }: ToolSeoSectionProps) {
         {/* Supported Formats */}
         <section
           aria-labelledby="formats-heading"
-          className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-xs"
+          className="rounded-2xl border border-gray-900/5 bg-white p-6 shadow-sm shadow-gray-900/5 sm:p-8"
         >
           <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-accent uppercase">
             <FileType className="size-4" aria-hidden="true" />
@@ -134,13 +134,13 @@ export function ToolSeoSection({ content, tool }: ToolSeoSectionProps) {
             Supported Formats
           </h3>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-xl bg-gray-50 p-4">
+            <div className="rounded-xl bg-surface p-4">
               <span className="text-xs font-medium text-gray-500 uppercase">Input Formats</span>
               <p className="mt-1 font-semibold text-gray-900">
                 {content.supportedFormats.input.join(", ")}
               </p>
             </div>
-            <div className="rounded-xl bg-gray-50 p-4">
+            <div className="rounded-xl bg-surface p-4">
               <span className="text-xs font-medium text-gray-500 uppercase">Output Formats</span>
               <p className="mt-1 font-semibold text-gray-900">
                 {content.supportedFormats.output.join(", ")}
@@ -211,7 +211,7 @@ export function ToolSeoSection({ content, tool }: ToolSeoSectionProps) {
             {content.faqs.map((faq) => (
               <details
                 key={faq.question}
-                className="group rounded-xl border border-gray-200 bg-white transition-colors open:border-accent/40 open:shadow-xs"
+                className="group rounded-2xl border border-gray-900/5 bg-white shadow-xs transition-all open:border-accent/25 open:shadow-lg open:shadow-accent/5"
               >
                 <summary className="flex cursor-pointer items-center justify-between gap-4 p-5 font-semibold text-gray-900 transition-colors select-none hover:text-accent list-none [&::-webkit-details-marker]:hidden">
                   <span>{faq.question}</span>
@@ -220,7 +220,7 @@ export function ToolSeoSection({ content, tool }: ToolSeoSectionProps) {
                     aria-hidden="true"
                   />
                 </summary>
-                <div className="border-t border-gray-100 px-5 pt-3 pb-5 text-sm leading-relaxed text-gray-600">
+                <div className="border-t border-gray-900/5 px-5 pt-3 pb-5 text-sm leading-relaxed text-gray-600">
                   {faq.answer}
                 </div>
               </details>

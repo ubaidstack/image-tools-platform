@@ -221,15 +221,15 @@ export function UploadArea() {
   return (
     <div className="w-full">
       {/* Top Header: Active Image Compressor + More Tools on the right */}
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-gray-200 bg-white px-4 py-2.5 shadow-xs">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-gray-900/5 bg-white px-4 py-3 shadow-sm shadow-gray-900/5">
         <div className="flex items-center gap-2">
-          <span className="flex size-7 items-center justify-center rounded-lg bg-accent text-white">
+          <span className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-violet text-white shadow-sm shadow-accent/30">
             <Minimize2 className="size-4" aria-hidden="true" />
           </span>
           <span className="text-sm font-semibold text-gray-900">
             Image Compressor
           </span>
-          <span className="rounded-full bg-accent-soft px-2.5 py-0.5 text-xs font-medium text-accent">
+          <span className="rounded-full bg-accent-soft px-2.5 py-0.5 text-xs font-semibold text-accent">
             Active Tool
           </span>
         </div>
@@ -240,25 +240,25 @@ export function UploadArea() {
           </span>
           <Link
             href="/tools/image-resizer"
-            className="rounded-lg px-2.5 py-1 text-xs font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900"
+            className="rounded-full px-2.5 py-1 text-xs font-medium text-gray-600 transition-colors hover:bg-accent-soft hover:text-accent"
           >
             Resize
           </Link>
           <Link
             href="/tools/image-cropper"
-            className="rounded-lg px-2.5 py-1 text-xs font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900"
+            className="rounded-full px-2.5 py-1 text-xs font-medium text-gray-600 transition-colors hover:bg-accent-soft hover:text-accent"
           >
             Crop
           </Link>
           <Link
             href="/tools/webp-converter"
-            className="rounded-lg px-2.5 py-1 text-xs font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900"
+            className="rounded-full px-2.5 py-1 text-xs font-medium text-gray-600 transition-colors hover:bg-accent-soft hover:text-accent"
           >
             WebP
           </Link>
           <Link
             href="/all-tools"
-            className="inline-flex items-center gap-1 rounded-lg bg-gray-50 px-2.5 py-1 text-xs font-semibold text-accent transition-colors hover:bg-accent-soft"
+            className="inline-flex items-center gap-1 rounded-full bg-accent-soft px-2.5 py-1 text-xs font-semibold text-accent transition-colors hover:bg-accent hover:text-white"
           >
             All tools
             <ArrowRight className="size-3" aria-hidden="true" />
@@ -269,7 +269,7 @@ export function UploadArea() {
       {selectedFile ? (
         <div className="flex flex-col gap-5">
           {/* File summary bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-gray-200 bg-white px-5 py-4 shadow-sm">
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-gray-900/5 bg-white px-5 py-4 shadow-sm shadow-gray-900/5">
             <div className="min-w-0">
               <p className="max-w-md truncate text-sm font-semibold text-gray-900">
                 {selectedFile.file.name}
@@ -284,7 +284,7 @@ export function UploadArea() {
                 type="button"
                 onClick={openFilePicker}
                 disabled={isProcessing || isLoading}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 shadow-xs transition-colors hover:border-gray-400 disabled:opacity-50"
+                className="inline-flex items-center gap-1.5 rounded-full border border-gray-900/10 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 shadow-xs transition-colors hover:border-accent/40 hover:text-accent disabled:opacity-50"
               >
                 <Upload className="size-3.5" aria-hidden="true" />
                 Change image
@@ -293,7 +293,7 @@ export function UploadArea() {
                 type="button"
                 onClick={clearSelection}
                 disabled={isProcessing || isLoading}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 shadow-xs transition-colors hover:border-gray-400 disabled:opacity-50"
+                className="inline-flex items-center gap-1.5 rounded-full border border-gray-900/10 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 shadow-xs transition-colors hover:border-accent/40 hover:text-accent disabled:opacity-50"
               >
                 <X className="size-3.5" aria-hidden="true" />
                 Remove
@@ -306,7 +306,7 @@ export function UploadArea() {
             {/* Left Column: Image Preview / Result */}
             <div
               className={cn(
-                "relative flex flex-col items-center justify-center overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 p-4",
+                "relative flex flex-col items-center justify-center overflow-hidden rounded-3xl border border-gray-900/5 bg-surface p-4",
                 "min-h-[280px] sm:min-h-[360px]"
               )}
             >
@@ -320,14 +320,14 @@ export function UploadArea() {
                     unoptimized
                     className="max-h-[340px] w-auto max-w-full rounded-lg object-contain shadow-sm"
                   />
-                  <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-2 text-center text-xs text-green-800">
+                  <div className="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 text-center text-xs text-emerald-800">
                     <span className="font-semibold">
                       {formatBytes(selectedFile.file.size)} →{" "}
                       {formatBytes(output.blob.size)}
                     </span>
                     {" · "}
                     {reduction > 0 ? (
-                      <span className="font-bold text-green-700">
+                      <span className="font-bold text-emerald-700">
                         {reduction}% smaller
                       </span>
                     ) : (
@@ -348,7 +348,7 @@ export function UploadArea() {
 
               {(isProcessing || isLoading) && (
                 <div
-                  className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-2xl bg-white/80 backdrop-blur-sm"
+                  className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-3xl bg-white/85 backdrop-blur-sm"
                   role="status"
                   aria-live="polite"
                 >
@@ -363,7 +363,7 @@ export function UploadArea() {
               )}
 
               {output ? (
-                <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full border border-green-200 bg-green-50 px-3 py-1 text-xs font-medium text-green-700">
+                <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
                   <CheckCircle2 className="size-3.5" aria-hidden="true" />
                   Compressed Result Ready
                 </span>
@@ -373,8 +373,8 @@ export function UploadArea() {
             {/* Right Column: Compressor Controls + More Tools */}
             <div className="flex flex-col gap-4">
               {/* Compressor Controls Card */}
-              <div className="flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
-                <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+              <div className="flex flex-col gap-4 rounded-2xl border border-gray-900/5 bg-white p-5 shadow-lg shadow-gray-900/5">
+                <div className="flex items-center justify-between border-b border-gray-900/5 pb-3">
                   <div className="flex items-center gap-2">
                     <Minimize2 className="size-4 text-accent" aria-hidden="true" />
                     <span className="text-sm font-semibold text-gray-900">
@@ -407,7 +407,7 @@ export function UploadArea() {
                       aria-label={`Quality: ${quality}%`}
                       className="h-2 w-full cursor-pointer appearance-none rounded-full bg-gray-200 accent-[var(--color-accent)] disabled:cursor-not-allowed disabled:opacity-50"
                     />
-                    <span className="w-12 shrink-0 rounded-md bg-gray-100 px-2 py-1 text-center text-xs font-medium text-gray-700 tabular-nums">
+                    <span className="w-12 shrink-0 rounded-lg bg-accent-soft px-2 py-1 text-center text-xs font-semibold text-accent tabular-nums">
                       {quality}%
                     </span>
                   </div>
@@ -427,7 +427,7 @@ export function UploadArea() {
                   type="button"
                   onClick={handleCompress}
                   disabled={isProcessing || isLoading}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-accent-strong disabled:cursor-not-allowed disabled:opacity-50"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-violet px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/30 disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {isProcessing ? (
                     <Loader2 className="size-4 animate-spin" aria-hidden="true" />
@@ -441,7 +441,7 @@ export function UploadArea() {
                   <button
                     type="button"
                     onClick={() => downloadBlob(output.blob, output.name)}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-green-600 bg-green-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-green-700"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-600/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-emerald-700"
                   >
                     <Download className="size-4" aria-hidden="true" />
                     Download compressed image
@@ -463,7 +463,7 @@ export function UploadArea() {
               </div>
 
               {/* More Tools Panel on the Right */}
-              <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
+              <div className="rounded-2xl border border-gray-900/5 bg-white p-4 shadow-lg shadow-gray-900/5">
                 <div className="mb-3 flex items-center justify-between">
                   <h3 className="text-xs font-bold tracking-wider text-gray-900 uppercase">
                     More Tools
@@ -482,10 +482,10 @@ export function UploadArea() {
                       <Link
                         key={t.name}
                         href={t.href}
-                        className="group flex items-center justify-between rounded-xl border border-gray-100 bg-gray-50/60 p-2.5 transition-all hover:border-accent/30 hover:bg-accent-soft/40"
+                        className="group flex items-center justify-between rounded-xl border border-gray-900/5 bg-surface/80 p-2.5 transition-all hover:border-accent/30 hover:bg-accent-soft/60"
                       >
                         <div className="flex items-center gap-2.5">
-                          <span className="flex size-7 items-center justify-center rounded-lg bg-white text-gray-600 shadow-2xs group-hover:bg-accent group-hover:text-white transition-colors">
+                          <span className="flex size-8 items-center justify-center rounded-lg bg-white text-accent shadow-sm ring-1 ring-gray-900/5 transition-colors group-hover:bg-gradient-to-br group-hover:from-accent group-hover:to-violet group-hover:text-white">
                             <Icon className="size-4" aria-hidden="true" />
                           </span>
                           <div className="text-left">
@@ -526,18 +526,18 @@ export function UploadArea() {
           aria-label="Drag and drop an image here or browse files to compress"
           aria-busy={isLoading}
           className={cn(
-            "group flex cursor-pointer flex-col items-center rounded-2xl border-2 border-dashed bg-gray-50/60 px-6 py-12 text-center transition-colors duration-200 outline-none sm:py-16",
+            "group relative flex cursor-pointer flex-col items-center overflow-hidden rounded-3xl border-2 border-dashed bg-gradient-to-b from-white to-accent-soft/50 px-6 py-12 text-center transition-all duration-300 outline-none sm:py-16",
             dragActive
-              ? "border-accent bg-accent-soft"
-              : "border-gray-300 hover:border-accent/50 hover:bg-accent-soft/40 focus-visible:border-accent focus-visible:ring-4 focus-visible:ring-accent/15"
+              ? "scale-[1.01] border-accent bg-accent-soft"
+              : "border-accent/25 hover:border-accent/60 hover:shadow-lg hover:shadow-accent/5 focus-visible:border-accent focus-visible:ring-4 focus-visible:ring-accent/15"
           )}
         >
           {isLoading ? (
             <div className="flex flex-col items-center">
-              <span className="flex size-14 items-center justify-center rounded-full bg-white text-accent shadow-sm ring-1 ring-gray-200">
-                <Loader2 className="size-6 animate-spin" aria-hidden="true" />
+              <span className="flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-violet text-white shadow-xl shadow-accent/30">
+                <Loader2 className="size-7 animate-spin" aria-hidden="true" />
               </span>
-              <p className="mt-4 text-lg font-semibold text-gray-900">
+              <p className="mt-5 text-xl font-semibold text-ink">
                 Loading image…
               </p>
               <p className="mt-1 text-sm text-gray-500">
@@ -546,14 +546,14 @@ export function UploadArea() {
             </div>
           ) : (
             <div className="flex flex-col items-center">
-              <span className="flex size-14 items-center justify-center rounded-full bg-white text-accent shadow-sm ring-1 ring-gray-200">
-                <Upload className="size-6" aria-hidden="true" />
+              <span className="flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-violet text-white shadow-xl shadow-accent/30 motion-safe:animate-float-soft">
+                <Upload className="size-7" aria-hidden="true" />
               </span>
-              <p className="mt-4 text-lg font-semibold text-gray-900">
+              <p className="mt-5 text-xl font-semibold text-ink">
                 Drag &amp; drop an image to compress
               </p>
               <p className="mt-1 text-sm text-gray-500">or</p>
-              <span className="mt-4 inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors group-hover:bg-accent-strong">
+              <span className="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-violet px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:shadow-xl group-hover:shadow-accent/30">
                 <Upload className="size-4" aria-hidden="true" />
                 Browse files
               </span>
@@ -579,7 +579,7 @@ export function UploadArea() {
         {siteConfig.formats.map((format) => (
           <li
             key={format}
-            className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-semibold tracking-wide text-gray-600"
+            className="rounded-full border border-gray-900/5 bg-white px-3 py-1 text-xs font-semibold tracking-wide text-gray-500"
           >
             {format}
           </li>

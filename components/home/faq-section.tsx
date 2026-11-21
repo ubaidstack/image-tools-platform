@@ -13,14 +13,14 @@ export function FaqSection() {
   const baseId = useId();
 
   return (
-    <section id="faq" className="bg-gray-50">
-      <Container className="py-16 sm:py-20">
+    <section id="faq" className="bg-white">
+      <Container className="py-20 sm:py-28">
         <SectionHeader
           eyebrow="FAQ"
           title="Frequently asked questions"
           description="Everything you need to know about editing images online."
         />
-        <div className="mx-auto mt-12 max-w-3xl space-y-3">
+        <div className="mx-auto mt-14 max-w-3xl space-y-3">
           {faqItems.map((item, index) => {
             const isOpen = openIndex === index;
             const buttonId = `${baseId}-question-${index}`;
@@ -29,7 +29,12 @@ export function FaqSection() {
             return (
               <div
                 key={item.question}
-                className="overflow-hidden rounded-xl border border-gray-200 bg-white transition-colors focus-within:border-accent/40"
+                className={cn(
+                  "overflow-hidden rounded-2xl border bg-white transition-all duration-200",
+                  isOpen
+                    ? "border-accent/25 shadow-lg shadow-accent/10"
+                    : "border-gray-900/5 shadow-xs hover:border-accent/20"
+                )}
               >
                 <h3>
                   <button
@@ -38,18 +43,27 @@ export function FaqSection() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-gray-50/60"
+                    className="flex w-full items-center justify-between gap-4 px-5 py-4.5 text-left transition-colors hover:bg-surface/60"
                   >
-                    <span className="text-base font-medium text-gray-900">
+                    <span className="text-base font-semibold text-ink">
                       {item.question}
                     </span>
-                    <ChevronDown
+                    <span
                       className={cn(
-                        "size-5 shrink-0 text-gray-400 transition-transform duration-200",
-                        isOpen && "rotate-180 text-accent"
+                        "flex size-8 shrink-0 items-center justify-center rounded-full transition-all duration-200",
+                        isOpen
+                          ? "bg-gradient-to-br from-accent to-violet text-white shadow-sm shadow-accent/30"
+                          : "bg-surface text-gray-500"
                       )}
-                      aria-hidden="true"
-                    />
+                    >
+                      <ChevronDown
+                        className={cn(
+                          "size-4 transition-transform duration-200",
+                          isOpen && "rotate-180"
+                        )}
+                        aria-hidden="true"
+                      />
+                    </span>
                   </button>
                 </h3>
                 <div

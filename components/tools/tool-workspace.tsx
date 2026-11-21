@@ -164,7 +164,7 @@ export function ToolWorkspace({
       ) : (
         <div className="flex flex-col gap-5">
           {/* Selected file summary */}
-          <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-gray-200 bg-white px-5 py-4 shadow-sm">
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-gray-900/5 bg-white px-5 py-4 shadow-sm shadow-gray-900/5">
             <div className="min-w-0">
               <p className="truncate text-sm font-semibold text-gray-900">
                 {image.file.name}
@@ -177,7 +177,7 @@ export function ToolWorkspace({
             <button
               type="button"
               onClick={resetAll}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-3.5 py-2 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:border-gray-400"
+              className="inline-flex items-center gap-1.5 rounded-full border border-gray-900/10 bg-white px-3.5 py-2 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:border-accent/40 hover:text-accent"
             >
               <RefreshCw className="size-4" aria-hidden="true" />
               Choose different image
@@ -188,7 +188,7 @@ export function ToolWorkspace({
             {/* Preview / result */}
             <div
               className={cn(
-                "relative flex items-center justify-center overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 p-4",
+                "relative flex items-center justify-center overflow-hidden rounded-3xl border border-gray-900/5 bg-surface p-4",
                 "min-h-[260px] sm:min-h-[340px]"
               )}
             >
@@ -216,7 +216,7 @@ export function ToolWorkspace({
 
               {(isProcessing || isLoadingImage) && (
                 <div
-                  className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-2xl bg-white/80 backdrop-blur-sm"
+                  className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-3xl bg-white/85 backdrop-blur-sm"
                   role="status"
                   aria-live="polite"
                 >
@@ -231,7 +231,7 @@ export function ToolWorkspace({
               )}
 
               {output ? (
-                <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full border border-green-200 bg-green-50 px-3 py-1 text-xs font-medium text-green-700">
+                <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
                   <CheckCircle2 className="size-3.5" aria-hidden="true" />
                   Result ready
                 </span>
@@ -239,7 +239,7 @@ export function ToolWorkspace({
             </div>
 
             {/* Tool-specific controls */}
-            <div className="flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+            <div className="flex flex-col gap-4 rounded-2xl border border-gray-900/5 bg-white p-5 shadow-lg shadow-gray-900/5">
               {children(api)}
 
               {error ? (
@@ -256,7 +256,7 @@ export function ToolWorkspace({
 
           {/* Result summary + download */}
           {output ? (
-            <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+            <div className="rounded-2xl border border-gray-900/5 bg-white p-5 shadow-lg shadow-gray-900/5">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-gray-900">
@@ -270,7 +270,7 @@ export function ToolWorkspace({
                   <button
                     type="button"
                     onClick={resetOutput}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:border-gray-400"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-gray-900/10 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:border-accent/40 hover:text-accent"
                   >
                     <RefreshCw className="size-4" aria-hidden="true" />
                     Adjust settings
@@ -278,7 +278,7 @@ export function ToolWorkspace({
                   <button
                     type="button"
                     onClick={() => downloadBlob(output.blob, output.name)}
-                    className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-accent-strong"
+                    className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-violet px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/30"
                   >
                     <Download className="size-4" aria-hidden="true" />
                     Download
